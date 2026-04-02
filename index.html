@@ -7,132 +7,132 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0d1117; --surface: #161b22; --surface2: #1c2330; --border: #30363d;
-  --text: #e6edf3; --muted: #7d8590; --accent: #2f81f7; --accent2: #388bfd;
-  --green: #3fb950; --yellow: #d29922; --red: #f85149; --orange: #f0883e;
+  --bg:#0d1117;--surface:#161b22;--surface2:#1c2330;--border:#30363d;
+  --text:#e6edf3;--muted:#7d8590;--accent:#2f81f7;--accent2:#388bfd;
+  --green:#3fb950;--yellow:#d29922;--red:#f85149;--orange:#f0883e;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:14px;overflow:hidden;height:100vh;display:flex;flex-direction:column;}
 
-header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 11px 22px; display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
-.logo { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
-.logo span { color: var(--accent); }
-header h1 { font-size: 14px; font-weight: 500; flex: 1; }
-.btn-reset { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 4px 11px; border-radius: 6px; cursor: pointer; font-size: 11px; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
-.btn-reset:hover { border-color: var(--red); color: var(--red); }
-.btn-settings { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 4px 11px; border-radius: 6px; cursor: pointer; font-size: 11px; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
-.btn-settings:hover { border-color: var(--accent); color: var(--accent); }
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:11px 22px;display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:0.08em;}
+.logo span{color:var(--accent);}
+header h1{font-size:14px;font-weight:500;flex:1;}
+.btn-hdr{background:transparent;border:1px solid var(--border);color:var(--muted);padding:4px 11px;border-radius:6px;cursor:pointer;font-size:11px;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
+.btn-hdr:hover{border-color:var(--accent);color:var(--accent);}
+.btn-hdr.danger:hover{border-color:var(--red);color:var(--red);}
 
-/* YEARLY */
-.yearly-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 22px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; flex-shrink: 0; }
-.stat-block { display: flex; flex-direction: column; gap: 1px; }
-.stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-family: 'DM Mono', monospace; }
-.stat-value { font-family: 'DM Mono', monospace; font-size: 19px; font-weight: 500; }
-.stat-value.green { color: var(--green); } .stat-value.yellow { color: var(--yellow); } .stat-value.blue { color: var(--accent); }
-.progress-wrap { flex: 1; min-width: 160px; }
-.progress-label { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; margin-bottom: 5px; }
-.progress-bg { height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
+.yearly-section{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 22px;display:flex;gap:22px;align-items:center;flex-wrap:wrap;flex-shrink:0;}
+.stat-block{display:flex;flex-direction:column;gap:1px;}
+.stat-label{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-family:'DM Mono',monospace;}
+.stat-value{font-family:'DM Mono',monospace;font-size:19px;font-weight:500;}
+.stat-value.green{color:var(--green);}.stat-value.yellow{color:var(--yellow);}.stat-value.blue{color:var(--accent);}
+.progress-wrap{flex:1;min-width:160px;}
+.progress-label{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:5px;}
+.progress-bg{height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:3px;transition:width 0.4s ease;}
 
-/* MONTHLY STRIP */
-.monthly-section { background: var(--bg); border-bottom: 1px solid var(--border); padding: 8px 22px; display: flex; gap: 5px; overflow-x: auto; flex-shrink: 0; }
-.month-card { flex: 0 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: 7px; padding: 7px 10px; min-width: 82px; cursor: pointer; transition: all 0.15s; }
-.month-card:hover { border-color: var(--accent); }
-.month-card.active-month { border-color: var(--accent); background: #182030; }
-.month-name { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-family: 'DM Mono', monospace; margin-bottom: 3px; }
-.month-pts { font-family: 'DM Mono', monospace; font-size: 15px; font-weight: 500; }
-.month-pts.over { color: var(--green); } .month-pts.on-track { color: var(--accent); } .month-pts.behind { color: var(--yellow); } .month-pts.empty { color: var(--muted); }
-.month-bar-bg { height: 3px; background: var(--surface2); border-radius: 2px; margin-top: 4px; overflow: hidden; }
-.month-bar-fill { height: 100%; border-radius: 2px; }
-.month-target { font-size: 9px; color: var(--muted); font-family: 'DM Mono', monospace; margin-top: 2px; }
+.monthly-section{background:var(--bg);border-bottom:1px solid var(--border);padding:8px 22px;display:flex;gap:5px;overflow-x:auto;flex-shrink:0;}
+.month-card{flex:0 0 auto;background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:7px 10px;min-width:80px;cursor:pointer;transition:all 0.15s;}
+.month-card:hover{border-color:var(--accent);}
+.month-card.active-month{border-color:var(--accent);background:#182030;}
+.month-name{font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:3px;}
+.month-pts{font-family:'DM Mono',monospace;font-size:15px;font-weight:500;}
+.month-pts.over{color:var(--green);}.month-pts.on-track{color:var(--accent);}.month-pts.behind{color:var(--yellow);}.month-pts.empty{color:var(--muted);}
+.month-bar-bg{height:3px;background:var(--surface2);border-radius:2px;margin-top:4px;overflow:hidden;}
+.month-bar-fill{height:100%;border-radius:2px;}
+.month-target{font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px;}
 
-/* MAIN */
-.main { display: grid; grid-template-columns: 310px 1fr; flex: 1; overflow: hidden; }
+.main{display:grid;grid-template-columns:310px 1fr;flex:1;overflow:hidden;}
+.panel-left{border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+.panel-title{padding:9px 14px;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-family:'DM Mono',monospace;border-bottom:1px solid var(--border);background:var(--surface);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.panel-title .badge{background:var(--surface2);border:1px solid var(--border);padding:1px 7px;border-radius:10px;font-size:10px;color:var(--text);}
+.history-list{overflow-y:auto;flex:1;padding:5px;}
+.history-item{display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:5px;margin-bottom:2px;border:1px solid transparent;}
+.history-item:hover{background:var(--surface2);border-color:var(--border);}
+.hist-date{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);white-space:nowrap;min-width:72px;}
+.hist-name{flex:1;font-size:12px;line-height:1.3;}
+.hist-pts{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);white-space:nowrap;}
+.hist-del{background:none;border:none;color:var(--muted);cursor:pointer;padding:1px 4px;border-radius:3px;font-size:13px;opacity:0;transition:opacity 0.1s;}
+.history-item:hover .hist-del{opacity:1;}
+.hist-del:hover{color:var(--red);}
+.empty-state{padding:28px 14px;text-align:center;color:var(--muted);font-size:12px;line-height:1.8;}
 
-.panel-left { border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
-.panel-title { padding: 9px 14px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-family: 'DM Mono', monospace; border-bottom: 1px solid var(--border); background: var(--surface); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
-.panel-title .badge { background: var(--surface2); border: 1px solid var(--border); padding: 1px 7px; border-radius: 10px; font-size: 10px; color: var(--text); }
-.history-list { overflow-y: auto; flex: 1; padding: 5px; }
-.history-item { display: flex; align-items: center; gap: 8px; padding: 6px 9px; border-radius: 5px; margin-bottom: 2px; border: 1px solid transparent; }
-.history-item:hover { background: var(--surface2); border-color: var(--border); }
-.hist-date { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); white-space: nowrap; min-width: 72px; }
-.hist-name { flex: 1; font-size: 12px; line-height: 1.3; }
-.hist-pts { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); white-space: nowrap; }
-.hist-del { background: none; border: none; color: var(--muted); cursor: pointer; padding: 1px 4px; border-radius: 3px; font-size: 13px; opacity: 0; transition: opacity 0.1s; }
-.history-item:hover .hist-del { opacity: 1; }
-.hist-del:hover { color: var(--red); }
-.empty-state { padding: 28px 14px; text-align: center; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.panel-right{display:flex;flex-direction:column;overflow:hidden;}
+.search-wrap{padding:9px 13px;border-bottom:1px solid var(--border);background:var(--surface);display:flex;gap:8px;align-items:center;flex-shrink:0;}
+.search-wrap input{flex:1;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color 0.15s;}
+.search-wrap input:focus{border-color:var(--accent);}
+.search-wrap input::placeholder{color:var(--muted);}
+.filter-tabs{display:flex;gap:4px;padding:6px 13px;border-bottom:1px solid var(--border);background:var(--surface);flex-wrap:wrap;flex-shrink:0;}
+.tab{background:transparent;border:1px solid var(--border);color:var(--muted);padding:3px 9px;border-radius:20px;cursor:pointer;font-size:10px;font-family:'DM Mono',monospace;transition:all 0.15s;white-space:nowrap;}
+.tab:hover{border-color:var(--accent);color:var(--accent);}
+.tab.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+.result-count{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;padding:3px 13px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.exam-list{overflow-y:auto;flex:1;padding:5px;}
+.exam-item{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:5px;margin-bottom:2px;border:1px solid transparent;cursor:pointer;transition:all 0.12s;}
+.exam-item:hover{background:var(--surface2);border-color:var(--border);}
+.exam-item:active{transform:scale(0.99);}
+.exam-code{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);min-width:65px;}
+.exam-name{flex:1;font-size:12px;}
+.exam-pts{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;padding:2px 7px;border-radius:4px;background:var(--surface2);white-space:nowrap;}
+.pts-low{color:#7d8590;}.pts-mid{color:var(--yellow);}.pts-high{color:var(--green);}.pts-top{color:var(--orange);}
 
-.panel-right { display: flex; flex-direction: column; overflow: hidden; }
-.search-wrap { padding: 9px 13px; border-bottom: 1px solid var(--border); background: var(--surface); display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
-.search-wrap input { flex: 1; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 5px; font-family: 'DM Sans', sans-serif; font-size: 13px; outline: none; transition: border-color 0.15s; }
-.search-wrap input:focus { border-color: var(--accent); }
-.search-wrap input::placeholder { color: var(--muted); }
-.filter-tabs { display: flex; gap: 4px; padding: 6px 13px; border-bottom: 1px solid var(--border); background: var(--surface); flex-wrap: wrap; flex-shrink: 0; }
-.tab { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 3px 9px; border-radius: 20px; cursor: pointer; font-size: 10px; font-family: 'DM Mono', monospace; transition: all 0.15s; white-space: nowrap; }
-.tab:hover { border-color: var(--accent); color: var(--accent); }
-.tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-.result-count { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; padding: 3px 13px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
-.exam-list { overflow-y: auto; flex: 1; padding: 5px; }
-.exam-item { display: flex; align-items: center; gap: 9px; padding: 7px 10px; border-radius: 5px; margin-bottom: 2px; border: 1px solid transparent; cursor: pointer; transition: all 0.12s; }
-.exam-item:hover { background: var(--surface2); border-color: var(--border); }
-.exam-item:active { transform: scale(0.99); }
-.exam-code { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); min-width: 65px; }
-.exam-name { flex: 1; font-size: 12px; }
-.exam-pts { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; padding: 2px 7px; border-radius: 4px; background: var(--surface2); white-space: nowrap; }
-.pts-low { color: #7d8590; } .pts-mid { color: var(--yellow); } .pts-high { color: var(--green); } .pts-top { color: var(--orange); }
+.import-bar{padding:6px 20px;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted);flex-shrink:0;}
+.import-bar span{flex:1;}
+.btn-import{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 11px;border-radius:5px;cursor:pointer;font-size:11px;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
+.btn-import:hover{border-color:var(--accent);color:var(--accent);}
 
-/* IMPORT BAR */
-.import-bar { padding: 6px 20px; background: var(--surface); border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--muted); flex-shrink: 0; }
-.import-bar span { flex: 1; }
-.btn-import { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 4px 11px; border-radius: 5px; cursor: pointer; font-size: 11px; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
-.btn-import:hover { border-color: var(--accent); color: var(--accent); }
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:200;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:10px;width:480px;max-width:95vw;max-height:85vh;display:flex;flex-direction:column;}
+.modal-header{padding:13px 17px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.modal-header h2{font-size:14px;font-weight:500;}
+.modal-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:20px;line-height:1;padding:0 2px;}
+.modal-close:hover{color:var(--text);}
+.modal-body{padding:16px;flex:1;overflow-y:auto;}
+.modal-body p{color:var(--muted);font-size:12px;line-height:1.6;margin-bottom:10px;}
+.modal-body textarea{width:100%;height:160px;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:5px;font-family:'DM Mono',monospace;font-size:11px;resize:vertical;outline:none;}
+.modal-body textarea:focus{border-color:var(--accent);}
+.cfg-row{margin-bottom:13px;}
+.cfg-row label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:5px;}
+.cfg-row input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:5px;font-family:'DM Mono',monospace;font-size:14px;outline:none;transition:border-color 0.15s;}
+.cfg-row input:focus{border-color:var(--accent);}
+.cfg-preview{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);line-height:1.9;margin-top:4px;}
+.modal-footer{padding:10px 17px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:7px;}
+.btn{padding:6px 14px;border-radius:5px;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif;border:1px solid;transition:all 0.15s;}
+.btn-secondary{background:transparent;border-color:var(--border);color:var(--muted);}
+.btn-secondary:hover{border-color:var(--text);color:var(--text);}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:500;}
+.btn-primary:hover{background:var(--accent2);}
 
-/* MODAL */
-.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 200; align-items: center; justify-content: center; }
-.modal-overlay.open { display: flex; }
-.modal { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; width: 500px; max-width: 95vw; max-height: 80vh; display: flex; flex-direction: column; }
-.modal-header { padding: 13px 17px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.modal-header h2 { font-size: 14px; font-weight: 500; }
-.modal-close { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 19px; line-height: 1; }
-.modal-close:hover { color: var(--text); }
-.modal-body { padding: 16px; flex: 1; overflow-y: auto; }
-.modal-body p { color: var(--muted); font-size: 12px; line-height: 1.6; margin-bottom: 9px; }
-.modal-body textarea { width: 100%; height: 160px; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 8px; border-radius: 5px; font-family: 'DM Mono', monospace; font-size: 11px; resize: vertical; outline: none; }
-.modal-body textarea:focus { border-color: var(--accent); }
-.modal-footer { padding: 9px 17px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 7px; }
-.btn { padding: 5px 13px; border-radius: 5px; cursor: pointer; font-size: 12px; font-family: 'DM Sans', sans-serif; border: 1px solid; transition: all 0.15s; }
-.btn-secondary { background: transparent; border-color: var(--border); color: var(--muted); }
-.btn-secondary:hover { border-color: var(--text); color: var(--text); }
-.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 500; }
-.btn-primary:hover { background: var(--accent2); }
-
-.toast { position: fixed; bottom: 18px; right: 18px; background: var(--green); color: #fff; padding: 8px 15px; border-radius: 7px; font-size: 12px; font-weight: 500; transform: translateY(60px); opacity: 0; transition: all 0.25s; z-index: 300; }
-.toast.show { transform: translateY(0); opacity: 1; }
-::-webkit-scrollbar { width: 4px; height: 4px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.toast{position:fixed;bottom:18px;right:18px;background:var(--green);color:#fff;padding:8px 15px;border-radius:7px;font-size:12px;font-weight:500;transform:translateY(60px);opacity:0;transition:all 0.25s;z-index:300;}
+.toast.show{transform:translateY(0);opacity:1;}
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo">RAD/<span>SLO</span></div>
-  <h1>Točkovnik <span id="header-year">2026</span></h1>
-  <button class="btn-settings" onclick="openSettings()">⚙ Nastavitve</button>
-  <button class="btn-reset" onclick="resetAll()">↺ Ponastavi vse</button>
+  <h1>Točkovnik <span id="header-year"></span></h1>
+  <button class="btn-hdr" onclick="openSettings()">⚙ Nastavitve</button>
+  <button class="btn-hdr danger" onclick="resetAll()">↺ Ponastavi</button>
 </header>
 
 <div class="yearly-section">
   <div class="stat-block">
-    <div class="stat-label">Skupaj 2026</div>
+    <div class="stat-label">Skupaj</div>
     <div class="stat-value blue" id="pts-total">0.0</div>
   </div>
   <div class="stat-block">
     <div class="stat-label">Letni cilj</div>
-    <div class="stat-value" id="yearly-target-label" style="color:var(--muted)">2880</div>
+    <div class="stat-value" id="yearly-target-label" style="color:var(--muted)">—</div>
   </div>
   <div class="stat-block">
     <div class="stat-label">Ostalo</div>
-    <div class="stat-value" id="pts-remaining">2880.0</div>
+    <div class="stat-value" id="pts-remaining">—</div>
   </div>
   <div class="stat-block">
     <div class="stat-label">Ta mesec</div>
@@ -140,7 +140,7 @@ header h1 { font-size: 14px; font-weight: 500; flex: 1; }
   </div>
   <div class="stat-block">
     <div class="stat-label">Cilj/mesec</div>
-    <div class="stat-value" id="monthly-target-label" style="color:var(--muted)">320</div>
+    <div class="stat-value" id="monthly-target-label" style="color:var(--muted)">—</div>
   </div>
   <div class="stat-block">
     <div class="stat-label">Danes</div>
@@ -148,7 +148,7 @@ header h1 { font-size: 14px; font-weight: 500; flex: 1; }
   </div>
   <div class="progress-wrap">
     <div class="progress-label">
-      <span id="progress-label-text">Letni napredek</span>
+      <span id="progress-desc">Letni napredek</span>
       <span id="pct-label">0%</span>
     </div>
     <div class="progress-bg">
@@ -189,7 +189,7 @@ header h1 { font-size: 14px; font-weight: 500; flex: 1; }
   <button class="btn-import" onclick="openImport()">📋 Uvozi seznam preiskav</button>
 </div>
 
-
+<!-- SETTINGS MODAL -->
 <div class="modal-overlay" id="modal-settings">
   <div class="modal">
     <div class="modal-header">
@@ -197,26 +197,24 @@ header h1 { font-size: 14px; font-weight: 500; flex: 1; }
       <button class="modal-close" onclick="closeSettings()">×</button>
     </div>
     <div class="modal-body">
-      <p style="margin-bottom:16px;">Nastavi parametre za tekoče obračunsko leto. Spremembe se shranijo samodejno.</p>
-      <div style="display:grid;gap:14px;">
-        <div>
-          <div class="stat-label" style="margin-bottom:5px;">Leto</div>
-          <input type="number" id="cfg-year" min="2026" max="2040" style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:5px;font-family:'DM Mono',monospace;font-size:14px;outline:none;">
-        </div>
-        <div>
-          <div class="stat-label" style="margin-bottom:5px;">Prvi mesec (1=januar, 4=april…)</div>
-          <input type="number" id="cfg-month-from" min="1" max="12" style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:5px;font-family:'DM Mono',monospace;font-size:14px;outline:none;">
-        </div>
-        <div>
-          <div class="stat-label" style="margin-bottom:5px;">Zadnji mesec (12=december)</div>
-          <input type="number" id="cfg-month-to" min="1" max="12" style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:5px;font-family:'DM Mono',monospace;font-size:14px;outline:none;">
-        </div>
-        <div>
-          <div class="stat-label" style="margin-bottom:5px;">Norma % (npr. 80)</div>
-          <input type="number" id="cfg-pct" min="1" max="100" style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:5px;font-family:'DM Mono',monospace;font-size:14px;outline:none;">
-        </div>
-        <div id="cfg-preview" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);line-height:1.8;"></div>
+      <p>Nastavi parametre za tekoče obračunsko leto. Spremembe veljajo takoj.</p>
+      <div class="cfg-row">
+        <label>Leto</label>
+        <input type="number" id="cfg-year" min="2026" max="2040" placeholder="2026">
       </div>
+      <div class="cfg-row">
+        <label>Prvi mesec (1 = januar, 4 = april …)</label>
+        <input type="number" id="cfg-month-from" min="1" max="12" placeholder="4">
+      </div>
+      <div class="cfg-row">
+        <label>Zadnji mesec (12 = december)</label>
+        <input type="number" id="cfg-month-to" min="1" max="12" placeholder="12">
+      </div>
+      <div class="cfg-row">
+        <label>Norma % (polna norma = 4800 točk)</label>
+        <input type="number" id="cfg-pct" min="1" max="100" placeholder="80">
+      </div>
+      <div class="cfg-preview" id="cfg-preview">—</div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeSettings()">Prekliči</button>
@@ -225,10 +223,11 @@ header h1 { font-size: 14px; font-weight: 500; flex: 1; }
   </div>
 </div>
 
-<div class="modal-overlay" id="modal">
+<!-- IMPORT MODAL -->
+<div class="modal-overlay" id="modal-import">
   <div class="modal">
     <div class="modal-header">
-      <h2>Uvozi opravljene preiskave</h2>
+      <h2>📋 Uvozi opravljene preiskave</h2>
       <button class="modal-close" onclick="closeImport()">×</button>
     </div>
     <div class="modal-body">
@@ -236,7 +235,7 @@ header h1 { font-size: 14px; font-weight: 500; flex: 1; }
       <textarea id="import-text" placeholder="01.04.2026 13:15	MR dinamično slikanje
 01.04.2026 07:43	MR jeter s KS
 ..."></textarea>
-      <div id="import-preview" style="margin-top:8px;font-size:11px;"></div>
+      <div id="import-preview" style="margin-top:8px;font-size:11px;min-height:16px;"></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeImport()">Prekliči</button>
@@ -248,22 +247,29 @@ header h1 { font-size: 14px; font-weight: 500; flex: 1; }
 <div class="toast" id="toast"></div>
 
 <script>
+// ── CONSTANTS ──
 const FULL_NORMA = 4800;
 const MONTH_NAMES = ['','Jan','Feb','Mar','Apr','Maj','Jun','Jul','Avg','Sep','Okt','Nov','Dec'];
 
-// Config — stored in localStorage
-const DEFAULT_CFG = { year: 2026, monthFrom: 4, monthTo: 12, normaPct: 80 };
-let cfg = JSON.parse(localStorage.getItem('rad_cfg') || 'null') || DEFAULT_CFG;
+// ── CONFIG (persisted) ──
+const DEFAULT_CFG = {year:2026, monthFrom:4, monthTo:12, normaPct:80};
+let cfg = JSON.parse(localStorage.getItem('rad_cfg') || 'null') || {...DEFAULT_CFG};
 
 function getActiveMonths() {
-  const months = [];
-  for (let m = cfg.monthFrom; m <= cfg.monthTo; m++) months.push(m);
-  return months;
+  const r = [];
+  for (let m = cfg.monthFrom; m <= cfg.monthTo; m++) r.push(m);
+  return r;
 }
-function getYearlyTarget() { return Math.round(FULL_NORMA * (cfg.normaPct/100) * (getActiveMonths().length/12) * 10) / 10; }
-function getMonthlyTarget() { return Math.round(getYearlyTarget() / getActiveMonths().length * 10) / 10; }
+function getYearlyTarget() {
+  const months = getActiveMonths().length;
+  return Math.round(FULL_NORMA * (cfg.normaPct / 100) * (months / 12) * 10) / 10;
+}
+function getMonthlyTarget() {
+  return Math.round(getYearlyTarget() / getActiveMonths().length * 10) / 10;
+}
 function saveCfg() { localStorage.setItem('rad_cfg', JSON.stringify(cfg)); }
 
+// ── EXAM DATA ──
 const EXAMS = [
 {"code":"MR20001","name":"MR CERVIKALNE HRBTENICE","points":1.0},
 {"code":"MR21001","name":"MR CERVIKALNE HRBTENICE S KS","points":1.0},
@@ -292,24 +298,20 @@ const EXAMS = [
 {"code":"MR30013","name":"MR SEČNEGA MEHURJA BREZ KS","points":2.1},
 {"code":"MR31017","name":"MR SEČNEGA MEHURJA FUNKCIONALNA SLIKANJA S KS","points":2.1},
 {"code":"MR60013","name":"MR DINAMIČNO SLIKANJE","points":1.2},
-// CT GLAVA & VRAT
 {"code":"CT10001","name":"CT GLAVE BREZ KS","points":1.0},
 {"code":"CT11001","name":"CT GLAVE S KS","points":1.0},
 {"code":"CT10007","name":"CT VRATU BREZ KS","points":2.0},
 {"code":"CT11007","name":"CT VRATU S KS","points":2.0},
-// CT HRBTENICA
 {"code":"CT20003","name":"CT CERVIKALNE HRBTENICE","points":1.0},
 {"code":"CT21003","name":"CT CERVIKALNE HRBTENICE S KS","points":1.0},
 {"code":"CT20004","name":"CT TORAKALNE HRBTENICE","points":1.0},
 {"code":"CT21004","name":"CT TORAKALNE HRBTENICE S KS","points":1.0},
 {"code":"CT20005","name":"CT LUMBO-SAKRALNE HRBTENICE","points":1.0},
 {"code":"CT21005","name":"CT LUMBO-SAKRALNE HRBTENICE S KS","points":1.0},
-// CT PRSNI KOŠ & PLJUČA
 {"code":"CT30001","name":"CT PRSNIH ORGANOV BREZ KS","points":1.5},
 {"code":"CT31001","name":"CT PRSNIH ORGANOV S KS","points":1.5},
 {"code":"CT30006","name":"CT PRSNEGA KOŠA - PLJUČ HRCT","points":1.5},
 {"code":"CT30008","name":"CT PLJUČ PROTOKOL LUNGCARE","points":1.5},
-// CT ABDOMEN
 {"code":"CT30003","name":"CT TREBUŠNIH ORGANOV BREZ KS","points":1.5},
 {"code":"CT31003","name":"CT TREBUŠNIH ORGANOV S KS","points":1.5},
 {"code":"CT30004","name":"CT ZGORNJEGA ABDOMNA BREZ KS","points":1.5},
@@ -319,10 +321,8 @@ const EXAMS = [
 {"code":"CT31010","name":"CT JETER S PORTALNIM OJAČANJEM","points":1.5},
 {"code":"CT31013","name":"CT JETER S KS – 4 FAZE","points":1.5},
 {"code":"CT31009","name":"CT UROGRAFIJA - KONTRAST","points":1.5},
-// CT MEDENICA
 {"code":"CT30005","name":"CT MEDENIČNIH ORGANOV BREZ KS","points":1.5},
 {"code":"CT31005","name":"CT MEDENIČNIH ORGANOV S KS","points":1.5},
-// CTA
 {"code":"CT41005","name":"CTA PLJUČNIH ARTERIJ","points":1.4}
 ];
 
@@ -334,22 +334,23 @@ const ALIASES = {
   "MR UROGRAFIJA S KS":"MR31015","MR UROGRAFIJA":"MR31015",
   "MR ZGORNJEGA ABDOMNA":"MR30004","MR ZGORNJEGA ABDOMNA S KS":"MR31004",
   "MRCP (PREGLED ŽOLČNEGA SISTEMA)":"MR30008",
-  "MRCP PREGLED ŽOLČNEGA SISTEMA":"MR30008","MRCP":"MR30008",
+  "MRCP PREGLED ŽOLČNEGA SISTEMA":"MR30008","MRCP":"MR30008"
 };
 
 const examByCode = {}, examByName = {};
 EXAMS.forEach(e => { examByCode[e.code] = e; examByName[normalize(e.name)] = e; });
 
-function normalize(s) { return s.toUpperCase().replace(/\s+/g,' ').trim().replace(/\(.*?\)/g,'').replace(/\s+/g,' ').trim(); }
-
+function normalize(s) {
+  return s.toUpperCase().replace(/\s+/g,' ').trim().replace(/\(.*?\)/g,'').replace(/\s+/g,' ').trim();
+}
 function findExam(name) {
   const n = normalize(name);
   if (ALIASES[n]) return examByCode[ALIASES[n]];
   if (examByName[n]) return examByName[n];
   let best = null, bestScore = 0;
   for (const [key, exam] of Object.entries(examByName)) {
-    const score = similarity(n, key);
-    if (score > bestScore) { bestScore = score; best = exam; }
+    const s = similarity(n, key);
+    if (s > bestScore) { bestScore = s; best = exam; }
   }
   return bestScore > 0.65 ? best : null;
 }
@@ -358,39 +359,77 @@ function similarity(a, b) {
   if (b.includes(a) || a.includes(b)) return 0.9;
   const wa = new Set(a.split(' ')), wb = new Set(b.split(' '));
   let c = 0; wa.forEach(w => { if (wb.has(w)) c++; });
-  return (2*c)/(wa.size+wb.size);
+  return (2*c) / (wa.size + wb.size);
 }
 
+// ── STATE ──
 let history = JSON.parse(localStorage.getItem('rad_history') || '[]');
 let filter = 'VSE';
 let activeMonth = new Date().getMonth() + 1;
+let nextId = Date.now();
 
 function save() { localStorage.setItem('rad_history', JSON.stringify(history)); }
-
 function parseMonth(d) { const m = d.match(/^\d{1,2}\.(\d{1,2})\.\d{4}/); return m ? parseInt(m[1]) : null; }
 function parseYear(d)  { const m = d.match(/^\d{1,2}\.\d{1,2}\.(\d{4})/); return m ? parseInt(m[1]) : null; }
-
 function ptsClass(p) { return p>=3?'pts-top':p>=2?'pts-high':p>=1.5?'pts-mid':'pts-low'; }
+function fmtDate() {
+  const n = new Date();
+  return `${String(n.getDate()).padStart(2,'0')}.${String(n.getMonth()+1).padStart(2,'0')}.${n.getFullYear()} ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+}
+
+// ── RENDER ──
+function renderStats() {
+  const yt = getYearlyTarget(), mt = getMonthlyTarget();
+  const curMonth = new Date().getMonth() + 1;
+  const total = history.reduce((s,h) => s + (parseYear(h.date)===cfg.year ? h.points : 0), 0);
+  const monthTotal = history.reduce((s,h) => s + (parseMonth(h.date)===curMonth && parseYear(h.date)===cfg.year ? h.points : 0), 0);
+  const now = new Date();
+  const todayStr = `${String(now.getDate()).padStart(2,'0')}.${String(now.getMonth()+1).padStart(2,'0')}.${now.getFullYear()}`;
+  const todayCount = history.filter(h => h.date.startsWith(todayStr)).length;
+  const pct = Math.min(100, (total/yt)*100);
+
+  document.getElementById('header-year').textContent = cfg.year;
+  document.getElementById('pts-total').textContent = total.toFixed(1);
+  document.getElementById('yearly-target-label').textContent = yt.toFixed(1);
+  document.getElementById('pts-remaining').textContent = Math.max(0, yt-total).toFixed(1);
+  document.getElementById('pts-month').textContent = monthTotal.toFixed(1);
+  document.getElementById('monthly-target-label').textContent = mt.toFixed(1);
+  document.getElementById('count-today').textContent = todayCount;
+  document.getElementById('pct-label').textContent = pct.toFixed(1)+'%';
+  document.getElementById('progress-desc').textContent =
+    `${cfg.year} · cilj ${yt} točk (${cfg.normaPct}% norme, ${MONTH_NAMES[cfg.monthFrom]}–${MONTH_NAMES[cfg.monthTo]})`;
+
+  const rem = document.getElementById('pts-remaining');
+  rem.className = 'stat-value' + (pct>=100?' green':pct>=60?' yellow':'');
+  document.getElementById('pts-month').className = 'stat-value' + (monthTotal>=mt?' green':' blue');
+
+  const fill = document.getElementById('progress-fill');
+  fill.style.width = pct+'%';
+  fill.style.background = pct>=100?'var(--green)':pct>=60?'var(--yellow)':'var(--accent)';
+}
 
 function renderMonthStrip() {
+  const mt = getMonthlyTarget();
   const curMonth = new Date().getMonth() + 1;
   const byMonth = {};
-  history.forEach(h => { const mo=parseMonth(h.date), yr=parseYear(h.date); if(mo&&yr===cfg.year) byMonth[mo]=(byMonth[mo]||0)+h.points; });
+  history.forEach(h => {
+    const mo = parseMonth(h.date), yr = parseYear(h.date);
+    if (mo && yr === cfg.year) byMonth[mo] = (byMonth[mo]||0) + h.points;
+  });
 
-  const MONTHLY_TARGET_S=getMonthlyTarget();
   document.getElementById('monthly-section').innerHTML = getActiveMonths().map(mo => {
     const pts = byMonth[mo] || 0;
-    const pct = Math.min(100, (pts/MONTHLY_TARGET_S)*100);
-    const isCur = mo === curMonth, isAct = mo === activeMonth, isPast = mo < curMonth;
-    let cls = 'empty', bar = 'var(--border)';
-    if (pts >= MONTHLY_TARGET_S) { cls='over'; bar='var(--green)'; }
-    else if (pts > 0 && (isCur||!isPast)) { cls='on-track'; bar='var(--accent)'; }
-    else if (pts > 0 && isPast) { cls='behind'; bar='var(--yellow)'; }
+    const pct = Math.min(100, (pts/mt)*100);
+    const isCur = mo===curMonth, isAct = mo===activeMonth, isPast = mo<curMonth;
+    let cls='empty', bar='var(--border)';
+    if (pts>=mt)                      { cls='over';     bar='var(--green)';  }
+    else if (pts>0 && (isCur||!isPast)){ cls='on-track'; bar='var(--accent)'; }
+    else if (pts>0 && isPast)          { cls='behind';   bar='var(--yellow)'; }
     return `<div class="month-card${isAct?' active-month':''}" onclick="setActiveMonth(${mo})">
       <div class="month-name">${MONTH_NAMES[mo]}${isCur?' ◆':''}</div>
       <div class="month-pts ${cls}">${pts.toFixed(1)}</div>
       <div class="month-bar-bg"><div class="month-bar-fill" style="width:${pct}%;background:${bar}"></div></div>
-      <div class="month-target">/ ${MONTHLY_TARGET_S}</div>
+      <div class="month-target">/ ${mt}</div>
     </div>`;
   }).join('');
 }
@@ -401,7 +440,6 @@ function renderHistory() {
   const filtered = history.filter(h => parseMonth(h.date)===activeMonth && parseYear(h.date)===cfg.year);
   document.getElementById('hist-count').textContent = filtered.length;
   document.getElementById('panel-month-label').textContent = `${MONTH_NAMES[activeMonth]} ${cfg.year}`;
-
   const el = document.getElementById('history-list');
   if (!filtered.length) {
     el.innerHTML = `<div class="empty-state">${MONTH_NAMES[activeMonth]} ${cfg.year}: ni preiskav.<br>Izberi preiskavo ali uvozi seznam.</div>`;
@@ -416,51 +454,20 @@ function renderHistory() {
     </div>`).join('');
 }
 
-function renderStats() {
-  const total = history.reduce((s,h)=>s+(parseYear(h.date)===cfg.year?h.points:0),0);
-  const curMonth = new Date().getMonth()+1;
-  const monthTotal = history.reduce((s,h)=>s+(parseMonth(h.date)===curMonth&&parseYear(h.date)===cfg.year?h.points:0),0);
-  const now = new Date();
-  const todayStr = `${String(now.getDate()).padStart(2,'0')}.${String(now.getMonth()+1).padStart(2,'0')}.${now.getFullYear()}`;
-  const todayCount = history.filter(h=>h.date.startsWith(todayStr)).length;
-  const YEARLY_TARGET=getYearlyTarget(), MONTHLY_TARGET=getMonthlyTarget();
-  const pct = Math.min(100,(total/YEARLY_TARGET)*100);
-
-  document.getElementById('pts-total').textContent = total.toFixed(1);
-  document.getElementById('pts-remaining').textContent = Math.max(0,YEARLY_TARGET-total).toFixed(1);
-  document.getElementById('yearly-target-label').textContent = YEARLY_TARGET.toFixed(1);
-  document.getElementById('monthly-target-label').textContent = MONTHLY_TARGET.toFixed(1);
-  document.getElementById('pts-month').textContent = monthTotal.toFixed(1);
-  document.getElementById('count-today').textContent = todayCount;
-  document.getElementById('pct-label').textContent = pct.toFixed(1)+'%';
-  document.getElementById('header-year').textContent = cfg.year;
-  document.getElementById('progress-label-text').textContent = `Letni napredek · cilj ${YEARLY_TARGET} točk (${cfg.normaPct}% norme, ${MONTH_NAMES[cfg.monthFrom]}–${MONTH_NAMES[cfg.monthTo]})`;
-
-  const rem = document.getElementById('pts-remaining');
-  rem.className = 'stat-value'+(pct>=100?' green':pct>=60?' yellow':'');
-
-  const mEl = document.getElementById('pts-month');
-  mEl.className = 'stat-value'+(monthTotal>=getMonthlyTarget()?' green':' blue');
-
-  const fill = document.getElementById('progress-fill');
-  fill.style.width = pct+'%';
-  fill.style.background = pct>=100?'var(--green)':pct>=60?'var(--yellow)':'var(--accent)';
-}
-
 function renderList() {
   const q = document.getElementById('search').value.toLowerCase();
   let items = EXAMS;
   if (filter==='HRBTENICA') {
     const S=['MR20001','MR21001','MR20003','MR21003','MR20005','MR21005','MR20015','MR21015'];
-    items=items.filter(e=>S.includes(e.code));
+    items = items.filter(e=>S.includes(e.code));
   } else if (filter==='ABDOMEN') {
-    items=items.filter(e=>e.code.startsWith('MR3')||e.code==='MR60013');
+    items = items.filter(e=>e.code.startsWith('MR3')||e.code==='MR60013');
   } else if (filter==='CT') {
-    items=items.filter(e=>e.code.startsWith('CT'));
+    items = items.filter(e=>e.code.startsWith('CT'));
   }
-  if (q) items=items.filter(e=>e.name.toLowerCase().includes(q)||e.code.toLowerCase().includes(q));
-  document.getElementById('result-count').textContent=`${items.length} preiskav`;
-  document.getElementById('exam-list').innerHTML=items.map(e=>`
+  if (q) items = items.filter(e=>e.name.toLowerCase().includes(q)||e.code.toLowerCase().includes(q));
+  document.getElementById('result-count').textContent = `${items.length} preiskav`;
+  document.getElementById('exam-list').innerHTML = items.map(e=>`
     <div class="exam-item" onclick="addExam('${e.code}')">
       <span class="exam-code">${e.code}</span>
       <span class="exam-name">${e.name.replace(/</g,'&lt;')}</span>
@@ -470,14 +477,11 @@ function renderList() {
 
 function render() { renderStats(); renderMonthStrip(); renderHistory(); renderList(); }
 
-let nextId = Date.now();
-
+// ── ACTIONS ──
 function addExam(code) {
   const exam = examByCode[code]; if (!exam) return;
-  const now = new Date();
-  const dateStr = `${String(now.getDate()).padStart(2,'0')}.${String(now.getMonth()+1).padStart(2,'0')}.${now.getFullYear()} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-  history.push({id:nextId++, code:exam.code, name:exam.name, points:exam.points, date:dateStr, ts:now.getTime()});
-  activeMonth = now.getMonth()+1;
+  history.push({id:nextId++, code:exam.code, name:exam.name, points:exam.points, date:fmtDate(), ts:Date.now()});
+  activeMonth = new Date().getMonth()+1;
   save(); render();
   showToast(`+${exam.points.toFixed(1)} — ${exam.name}`);
 }
@@ -489,52 +493,115 @@ function resetAll() {
 }
 
 function setFilter(f, el) {
-  filter=f; document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); renderList();
+  filter=f;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderList();
 }
 
-function openImport() { document.getElementById('modal').classList.add('open'); }
-function closeImport() { document.getElementById('modal').classList.remove('open'); document.getElementById('import-text').value=''; document.getElementById('import-preview').textContent=''; }
+// ── SETTINGS ──
+function openSettings() {
+  document.getElementById('cfg-year').value = cfg.year;
+  document.getElementById('cfg-month-from').value = cfg.monthFrom;
+  document.getElementById('cfg-month-to').value = cfg.monthTo;
+  document.getElementById('cfg-pct').value = cfg.normaPct;
+  updateCfgPreview();
+  document.getElementById('modal-settings').classList.add('open');
+}
+
+function closeSettings() {
+  document.getElementById('modal-settings').classList.remove('open');
+}
+
+function updateCfgPreview() {
+  const yr    = parseInt(document.getElementById('cfg-year').value) || 0;
+  const mFrom = parseInt(document.getElementById('cfg-month-from').value) || 1;
+  const mTo   = parseInt(document.getElementById('cfg-month-to').value) || 12;
+  const pct   = parseInt(document.getElementById('cfg-pct').value) || 80;
+  if (!yr || mFrom > mTo) { document.getElementById('cfg-preview').textContent = '—'; return; }
+  const months = mTo - mFrom + 1;
+  const yt = Math.round(FULL_NORMA * (pct/100) * (months/12) * 10) / 10;
+  const mt = Math.round(yt / months * 10) / 10;
+  document.getElementById('cfg-preview').innerHTML =
+    `Leto: <b style="color:var(--text)">${yr}</b> &nbsp;·&nbsp; ` +
+    `Meseci: <b style="color:var(--text)">${MONTH_NAMES[mFrom]||mFrom}–${MONTH_NAMES[mTo]||mTo}</b> (${months} mes.)<br>` +
+    `Letni cilj: <b style="color:var(--accent)">${yt}</b> točk &nbsp;·&nbsp; ` +
+    `Mesečni cilj: <b style="color:var(--accent)">${mt}</b> točk`;
+}
+
+['cfg-year','cfg-month-from','cfg-month-to','cfg-pct'].forEach(id => {
+  document.getElementById(id).addEventListener('input', updateCfgPreview);
+});
+
+function saveSettings() {
+  const yr    = parseInt(document.getElementById('cfg-year').value);
+  const mFrom = parseInt(document.getElementById('cfg-month-from').value);
+  const mTo   = parseInt(document.getElementById('cfg-month-to').value);
+  const pct   = parseInt(document.getElementById('cfg-pct').value);
+  if (!yr || !mFrom || !mTo || !pct || mFrom > mTo || pct<1 || pct>100 || yr<2020) {
+    showToast('Napaka: preveri vnose'); return;
+  }
+  cfg = {year:yr, monthFrom:mFrom, monthTo:mTo, normaPct:pct};
+  saveCfg();
+  activeMonth = Math.min(Math.max(activeMonth, mFrom), mTo);
+  closeSettings();
+  render();
+  showToast(`Nastavitve shranjene · ${yr}`);
+}
+
+// ── IMPORT ──
+function openImport() { document.getElementById('modal-import').classList.add('open'); }
+function closeImport() {
+  document.getElementById('modal-import').classList.remove('open');
+  document.getElementById('import-text').value='';
+  document.getElementById('import-preview').textContent='';
+}
 
 document.getElementById('import-text').addEventListener('input', function() {
-  const lines=this.value.trim().split('\n').filter(l=>l.trim());
+  const lines = this.value.trim().split('\n').filter(l=>l.trim());
   let ok=0, no=0;
-  lines.forEach(line=>{
-    const parts=line.split(/\t+/);
-    const name=parts.length>=2?parts.slice(1).join(' ').trim():line.trim();
-    findExam(name)?ok++:no++;
+  lines.forEach(line => {
+    const parts = line.split(/\t+/);
+    const name = parts.length>=2 ? parts.slice(1).join(' ').trim() : line.trim();
+    findExam(name) ? ok++ : no++;
   });
   document.getElementById('import-preview').innerHTML = lines.length
     ? `<span style="color:var(--green)">✓ ${ok} ujemanj</span>${no?` &nbsp;<span style="color:var(--yellow)">? ${no} ni najdenih</span>`:''}` : '';
 });
 
 function doImport() {
-  const lines=document.getElementById('import-text').value.trim().split('\n').filter(l=>l.trim());
-  let added=0;
-  lines.forEach(line=>{
-    const parts=line.split(/\t+/);
+  const lines = document.getElementById('import-text').value.trim().split('\n').filter(l=>l.trim());
+  let added = 0;
+  lines.forEach(line => {
+    const parts = line.split(/\t+/);
     let dateStr=null, namePart='';
     if (parts.length>=2 && /^\d{1,2}\.\d{1,2}\.\d{4}/.test(parts[0].trim())) {
       dateStr=parts[0].trim(); namePart=parts.slice(1).join(' ').trim();
     } else { namePart=line.trim(); }
-    const exam=findExam(namePart);
+    const exam = findExam(namePart);
     if (exam) {
       if (!dateStr) { const n=new Date(); dateStr=`${String(n.getDate()).padStart(2,'0')}.${String(n.getMonth()+1).padStart(2,'0')}.${n.getFullYear()}`; }
       history.push({id:nextId++, code:exam.code, name:exam.name, points:exam.points, date:dateStr, ts:Date.now()+added});
       added++;
     }
   });
-  if (added>0) { const mo=parseMonth(history[history.length-1].date); if(mo && mo>=cfg.monthFrom && mo<=cfg.monthTo) activeMonth=mo; }
+  if (added>0) {
+    const mo = parseMonth(history[history.length-1].date);
+    if (mo && mo>=cfg.monthFrom && mo<=cfg.monthTo) activeMonth=mo;
+  }
   save(); render(); closeImport();
-  const pts=history.slice(-added).reduce((s,h)=>s+h.points,0);
+  const pts = history.slice(-added).reduce((s,h)=>s+h.points,0);
   showToast(`Dodano ${added} preiskav · +${pts.toFixed(1)} točk`);
 }
 
+// ── TOAST ──
 function showToast(msg) {
-  const t=document.getElementById('toast');
+  const t = document.getElementById('toast');
   t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2800);
+  setTimeout(()=>t.classList.remove('show'), 2800);
 }
 
+// ── INIT ──
 render();
 </script>
 </body>
